@@ -2,13 +2,15 @@ import {Component, inject, input} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map, Observable, Subject, switchMap, takeWhile, tap, timer} from 'rxjs';
 import {readableStreamLikeToAsyncGenerator} from 'rxjs/internal/util/isReadableStreamLike';
-import {AsyncPipe, DatePipe} from '@angular/common';
+import {AsyncPipe, DatePipe, NgClass} from '@angular/common';
 
 @Component({
   selector: 'app-servicestatus',
   templateUrl: './servicestatus.component.html',
   styleUrl: './servicestatus.component.css',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   providers: []
 })
 
