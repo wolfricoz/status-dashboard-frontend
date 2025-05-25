@@ -29,7 +29,7 @@ export class ServicestatusComponent {
     // Make a GET request to the API endpoint
     console.log("Refreshing status for service: " + this.service.name)
     console.log(this.service.name)
-    this.http.post<any>(`api/api/${this.service.name}`, {}).subscribe(data => {
+    this.http.post<any>(`api/status/${this.service.name}`, {}).subscribe(data => {
       this.status = data.status;
       this.setdate()
 
