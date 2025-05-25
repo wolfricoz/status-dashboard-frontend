@@ -1,0 +1,22 @@
+{
+  "banwatch": {
+    "name": "banwatch",
+    "fields": {
+      "high": "high",
+      "medium": "medium",
+      "low": "low"
+    },
+    "description": "Banwatch is a service that monitors and manages bans across various platforms.",
+    "url": "https://bots.roleplaymeets.com/"
+  },
+  "ageverifier": {
+    "name": "ageverifier",
+    "fields": {
+      "high": "high",
+      "medium": "medium",
+      "low": "low"
+    },
+    "description": "AgeVerifier is a service that verifies the age of users to ensure compliance with age restrictions.",
+    "url": "https://bots.roleplaymeets.com/"
+  }
+}
