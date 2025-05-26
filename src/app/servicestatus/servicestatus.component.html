@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center border rounded-2xl shadow-lg h-40 w-60 xl:w-80 duration-500"
-(mouseenter)="selected = true" (mouseleave)=" selected = false" (focus)="selected = true"
-  [ngClass]="{
+     (mouseenter)="selected = true" (mouseleave)=" selected = false" (focus)="selected = true"
+     [ngClass]="{
     'h-50': selected,
   }"
 
@@ -12,13 +12,13 @@
   }">
 
 
-    <div class="w-full rounded-t-xl bg-gray-700 text-white p-2 text-center duration-500 h-10 w-full overflow-hidden"
-    [ngClass]="{
+    <div class="w-full rounded-t-xl bg-gray-700 text-white p-2 text-center duration-500 h-10 overflow-hidden"
+         [ngClass]="{
       'h-26 xl:h-20': selected,
     }">
 
       <h1 class="font-bold text-xl">
-      {{ service.name }}
+        {{ service.name }}
 
       </h1>
       <h6 class="text-sm" *ngIf="selected">
@@ -28,20 +28,36 @@
 
     <div class="p-2 text-center">
 
+      <div>
+        <h3 class="font-bold text-xl">
+          {{ status }}
+        </h3>
+      </div>
+      <div class="grid grid-cols-3">
+        <div class="col-span-1">
+          <span class="text-xs text-gray-700">{{ service.fields["high"] }}</span>
+          <p class="font-bold text-lg">{{ high }}</p>
+        </div>
+        <div class="col-span-1">
+          <span class="text-xs text-gray-700">{{ service.fields["medium"] }}</span>
+          <p class="font-bold text-lg">{{ med }}</p>
+        </div>
+        <div class="col-span-1">
+          <span class="text-xs text-gray-700">{{ service.fields["low"] }}</span>
+          <p class="font-bold text-lg">{{ low }}</p>
 
-      <h3 class="font-bold text-xl">
-        {{ status }}
-      </h3>
+        </div>
 
+      </div>
 
       <p
-
+        class="text-xs text-gray-700 bottom-0"
       >
-        Last checked {{ last_updated_at }}
+        Last checked {{ last_updated_at }}<br>
+        <span class="text-xs text-gray-700">Click to refresh</span>
       </p>
 
 
-      <span class="text-xs text-gray-700">Click to refresh</span>
     </div>
   </div>
 

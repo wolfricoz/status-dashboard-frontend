@@ -1,8 +1,7 @@
-import {Component, inject, Input, input} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {map, Observable, Subject, switchMap, takeWhile, tap, timer} from 'rxjs';
 import {readableStreamLikeToAsyncGenerator} from 'rxjs/internal/util/isReadableStreamLike';
-import {AsyncPipe, DatePipe, NgClass, NgIf} from '@angular/common';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'app-servicestatus',
@@ -16,10 +15,12 @@ import {AsyncPipe, DatePipe, NgClass, NgIf} from '@angular/common';
 })
 
 
-
 export class ServicestatusComponent {
   private http = inject(HttpClient)
   status = 'Background service is not running';
+  high = 0;
+  med = 0;
+  low = 0;
   last_updated_at = '';
   selected = false;
   @Input() service!: Service;
@@ -28,17 +29,22 @@ export class ServicestatusComponent {
   getstatus(): any {
     // Make a GET request to the API endpoint
     console.log("Refreshing status for service: " + this.service.name)
-    console.log(this.service.name)
-    // this.http.post<any>(`api/status/${this.service.name}`, {}).subscribe(data => {
-    //   this.status = data.status;
-    //   this.setdate()
-    //
-    // })
-        this.http.post<any>(`https://status.roleplaymeets.com/api/status/${this.service.name}`, {}).subscribe(data => {
+    this.http.post<any>(`api/status/${this.service.name}`, {}).subscribe(data => {
       this.status = data.status;
+      this.high = data.high;
+      this.med = data.medium;
+      this.low = data.low;
       this.setdate()
 
     })
+    // this.http.post<any>(`https://status.roleplaymeets.com/api/status/${this.service.name}`, {}).subscribe(data => {
+    //   this.status = data.status;
+    //   this.high = data.high;
+    //   this.med = data.medium;
+    //   this.low = data.low;
+    //   this.setdate()
+    //
+    // })
   }
 
   setdate() {
@@ -63,6 +69,7 @@ export class ServicestatusComponent {
 
   protected readonly readableStreamLikeToAsyncGenerator = readableStreamLikeToAsyncGenerator;
 }
+
 interface Service {
   name: string;
   fields: { [key: string]: string };
