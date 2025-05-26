@@ -1,11 +1,11 @@
-<div class="flex flex-col items-center justify-center border rounded-2xl shadow-lg h-40 w-80 duration-500"
-(mouseenter)="selected = true" (mouseleave)=" selected = false"
+<div class="flex flex-col items-center justify-center border rounded-2xl shadow-lg h-40 w-60 xl:w-80 duration-500"
+(mouseenter)="selected = true" (mouseleave)=" selected = false" (focus)="selected = true"
   [ngClass]="{
     'h-50': selected,
   }"
 
 >
-  <div class="cursor-pointer rounded-2xl  h-full" (click)="getstatus()"
+  <div class="cursor-pointer rounded-2xl  h-full w-full" (click)="getstatus()"
        [ngClass]="{
     'hover:bg-green-300 bg-green-400 border-green-500': status === 'OK',
     'hover:bg-red-300 bg-red-400 border-red-500': status !== 'OK'
@@ -14,7 +14,7 @@
 
     <div class="w-full rounded-t-xl bg-gray-700 text-white p-2 text-center duration-500 h-10 w-full overflow-hidden"
     [ngClass]="{
-      'h-20': selected,
+      'h-26 xl:h-20': selected,
     }">
 
       <h1 class="font-bold text-xl">

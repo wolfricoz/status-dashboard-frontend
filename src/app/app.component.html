@@ -8,7 +8,7 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<main class="h-screen w-screen p-10 space-y-10 bg-teal-50">
+<main class="h-screen w-screen p-1 xl:p-10 space-y-10 bg-teal-50">
   <div class=" border border-gray-700 rounded-2xl bg-teal-100">
     <div class="w-full flex flex-col items-center justify-center bg-gray-700 rounded-t-xl p-2">
       <h1 class="text-2xl text-white font-bold">
@@ -16,7 +16,7 @@
 
       </h1>
     </div>
-    <div class=" flex flex-row justify-center items-center gap-6  p-6" >
+    <div class=" flex flex-col xl:flex-row justify-center items-center gap-6  p-6" >
       <div *ngFor="let service of services | keyvalue">
       <app-servicestatus [service]=service.value></app-servicestatus>
 
