@@ -18,5 +18,15 @@
     },
     "description": "AgeVerifier is a service that verifies the age of users to ensure compliance with age restrictions.",
     "url": "https://bots.roleplaymeets.com/"
+  },
+  "RoleplayMeets.com": {
+    "name": "RoleplayMeets.com",
+    "fields": {
+      "high": "Users",
+      "medium": "Posts",
+      "low": "Participants"
+    },
+    "description": "RoleplayMeets.com is a platform for roleplaying communities to connect and interact.",
+    "url": "https://bots.roleplaymeets.com/"
   }
 }
