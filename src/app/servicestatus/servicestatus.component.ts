@@ -1,4 +1,4 @@
-import {Component, inject, Input} from '@angular/core';
+import {Component, inject, Input, isDevMode} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {readableStreamLikeToAsyncGenerator} from 'rxjs/internal/util/isReadableStreamLike';
 import {NgClass, NgIf} from '@angular/common';
@@ -18,7 +18,7 @@ import {NgClass, NgIf} from '@angular/common';
 
 export class ServicestatusComponent {
   private http = inject(HttpClient)
-  status = 'Background service is not running';
+  status = 'backend down';
   high = 0;
   med = 0;
   low = 0;
@@ -30,7 +30,17 @@ export class ServicestatusComponent {
   getstatus(): any {
     // Make a GET request to the API endpoint
     console.log("Refreshing status for service: " + this.service.name)
-    this.http.post<any>(`api/status/${this.service.name}`, {}).subscribe(data => {
+    if (!isDevMode()){
+      this.http.post<any>(`api/status/${this.service.name}`, {}).subscribe(data => {
+        this.status = data.status;
+        this.high = data.high;
+        this.med = data.medium;
+        this.low = data.low;
+        this.setdate()
+
+      })
+    } else {
+      this.http.post<any>(`https://status.roleplaymeets.com/api/status/${this.service.name}`, {}).subscribe(data => {
       this.status = data.status;
       this.high = data.high;
       this.med = data.medium;
@@ -38,14 +48,8 @@ export class ServicestatusComponent {
       this.setdate()
 
     })
-    // this.http.post<any>(`https://status.roleplaymeets.com/api/status/${this.service.name}`, {}).subscribe(data => {
-    //   this.status = data.status;
-    //   this.high = data.high;
-    //   this.med = data.medium;
-    //   this.low = data.low;
-    //   this.setdate()
-    //
-    // })
+    }
+
   }
 
   setdate() {

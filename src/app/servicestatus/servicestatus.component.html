@@ -61,7 +61,13 @@
     </div>
 
   </div>
-  <a href="{{ service.url }}" class="absolute bottom-0 w-full  p-2 bg-indigo-300 rounded-b-2xl text-center text-white">
+  <a href="{{ service.url }}" class="absolute bottom-0 w-full  p-2  rounded-b-2xl text-center text-white"
+     [ngClass]="{
+    'hover:bg-green-300 bg-green-500': status === 'OK',
+    'hover:bg-red-300 bg-red-500': status !== 'OK'
+  }"
+  title="Visit {{ service.name }}"
+  >
     Visit
   </a>
 
