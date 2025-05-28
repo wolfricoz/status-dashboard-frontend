@@ -11,6 +11,7 @@ import {NgClass, NgIf} from '@angular/common';
     NgClass,
     NgIf
   ],
+  standalone: true,
   providers: []
 })
 
