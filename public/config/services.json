@@ -27,6 +27,16 @@
       "low": "Participants"
     },
     "description": "RoleplayMeets.com is a platform for roleplaying communities to connect and interact.",
+    "url": "https://roleplaymeets.com/"
+  },
+    "bot dashboard": {
+    "name": "Bot Dashboard",
+    "fields": {
+      "high": "Ageverifier",
+      "medium": "Banwatch",
+      "low": "TBD"
+    },
+    "description": "The Bot Dashboard provides an overview of various bots and their configurations.",
     "url": "https://bots.roleplaymeets.com/"
   }
 }
