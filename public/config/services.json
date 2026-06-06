@@ -34,7 +34,7 @@
     "fields": {
       "high": "Ageverifier",
       "medium": "Banwatch",
-      "low": "TBD"
+      "low": "Forummanager"
     },
     "description": "The Bot Dashboard provides an overview of various bots and their configurations.",
     "url": "https://bots.roleplaymeets.com/"
